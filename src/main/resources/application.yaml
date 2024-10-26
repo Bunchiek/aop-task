@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: kafka-task
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:postgresql://localhost:5432/
+    username: postgres
+    password: postgres
+    hikari:
+      schema: client_schema
+      connection-init-sql: create schema if not exists client_schema
+      connection-timeout: 10000
+
+
+t1:
+  scan-path: org.example.kafkatask
+  kafka:
+    bootstrap:
+      server: localhost:9093
+    consumer:
+      group-id: t1-demo
+      max.poll.records: 10
+    producer:
+      enable: true
+    topic:
+      client_registration: t1_demo_client_registration
+      client_id_registered: t1_demo_client_registered
+    listener:
+      poll-timeout: 1000
