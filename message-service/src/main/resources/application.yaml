@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: my-app
+
+logger:
+  http:
+    enabled: true
+    level: DEBUG
+
