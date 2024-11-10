@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: tests-task
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:postgresql://localhost:5432/
+    username: postgres
+    password: postgres
+    hikari:
+      schema: client_schema
+      connection-init-sql: create schema if not exists client_schema
+      connection-timeout: 10000
